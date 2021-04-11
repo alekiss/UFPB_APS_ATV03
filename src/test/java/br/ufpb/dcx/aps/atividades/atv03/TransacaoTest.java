@@ -9,7 +9,13 @@ class TransacaoTest {
 
     @Test
     void testTransacao() {
-        fail("Apague este fail e implemente testes para a classe Transação");
+        Transacao a = new Transacao(007, 50);
+        Transacao b = new Transacao(-44, 32);
 
+        assertEquals(50.0, a.getValor());
+        Exception exception = assertThrows(RuntimeException.class, () ->
+                b.getId());
+        assertEquals("tente um id positivo", exception.getMessage());
+        assertEquals(32.0, b.getValor());
     }
 }
